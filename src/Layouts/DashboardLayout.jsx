@@ -6,7 +6,7 @@ import DashBar from "../components/DashBar";
 const DashboardLayout = () => {
   return (
     <div className="">
-      <div className="flex flex-row h-screen w-60%">
+      <div className="">
         <Sidebar />
         <div className="ml-60  flex flex-col">
           <DashBar />

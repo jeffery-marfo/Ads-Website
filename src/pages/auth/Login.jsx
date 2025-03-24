@@ -206,6 +206,7 @@
 import React, { useState } from "react";
 import heRo from "../../assets/images/hero.jpg";
 import gooGle from "../../assets/images/googlelogo.png";
+import { apiLogin } from "../../services/auth";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -218,10 +219,13 @@ const Login = () => {
     e.preventDefault();
     setError("");
     setLoading(true);
+    const formData = new FormData(e.target);
 
     try {
       // Here you would integrate with your actual authentication API
-      console.log("Logging in as", userType, "with email:", email);
+      // console.log("Logging in as", userType, "with email:", email);
+      const response = await apiLogin({ email, password });
+      console.log(response);
 
       // Simulate API call
       await new Promise((resolve) => setTimeout(resolve, 1000));
@@ -307,7 +311,7 @@ const Login = () => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
+                className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 required:"
               />
             </div>
 
@@ -318,7 +322,7 @@ const Login = () => {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
-                className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
+                className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 required"
               />
             </div>
 

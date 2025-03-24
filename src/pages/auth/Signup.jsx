@@ -6,16 +6,15 @@
 
 // export default Signup;
 import { useState } from "react";
+import { apiSignup } from "../../services/auth";
 
 const Signup = () => {
   const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
+    userName: "",
     email: "",
     password: "",
     confirmPassword: "",
-    userType: "user", // Default to 'user'
-    companyName: "", // For vendors only
+    role: "customer", // Default to 'user'
   });
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
@@ -26,7 +25,7 @@ const Signup = () => {
   };
 
   const handleUserTypeChange = (type) => {
-    setFormData((prev) => ({ ...prev, userType: type }));
+    setFormData((prev) => ({ ...prev, role: type }));
   };
 
   const validateForm = () => {
@@ -40,7 +39,7 @@ const Signup = () => {
       return false;
     }
 
-    if (formData.userType === "vendor" && !formData.companyName.trim()) {
+    if (formData.role === "vendor" && !formData.companyName.trim()) {
       setError("Company name is required for vendors");
       return false;
     }
@@ -58,10 +57,11 @@ const Signup = () => {
 
     try {
       // Here you would integrate with your actual registration API
-      console.log("Registering as", formData.userType, "with data:", formData);
+      console.log("Registering as", formData.role, "with data:", formData);
 
       // Simulate API call
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      const response = await apiSignup(formData);
+      console.log(response);
 
       // Handle successful registration
       // Redirect to login page or directly to dashboard
@@ -92,14 +92,14 @@ const Signup = () => {
                 name="user-type"
                 type="radio"
                 className="h-4 w-4 text-blue-600 border-gray-300"
-                checked={formData.userType === "user"}
-                onChange={() => handleUserTypeChange("user")}
+                checked={formData.role === "customer"}
+                onChange={() => handleUserTypeChange("customer")}
               />
               <label
                 htmlFor="user-type-user"
                 className="ml-2 block text-sm text-gray-900"
               >
-                User
+                Customer
               </label>
             </div>
             <div className="flex items-center">
@@ -108,7 +108,7 @@ const Signup = () => {
                 name="user-type"
                 type="radio"
                 className="h-4 w-4 text-blue-600 border-gray-300"
-                checked={formData.userType === "vendor"}
+                checked={formData.role === "vendor"}
                 onChange={() => handleUserTypeChange("vendor")}
               />
               <label
@@ -127,68 +127,24 @@ const Signup = () => {
               </div>
             )}
 
-            <div className="grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-2">
-              <div>
-                <label
-                  htmlFor="firstName"
-                  className="block text-sm font-medium text-gray-700"
-                >
-                  First name
-                </label>
-                <div className="mt-1">
-                  <input
-                    type="text"
-                    name="firstName"
-                    id="firstName"
-                    required
-                    value={formData.firstName}
-                    onChange={handleChange}
-                    className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-                  />
-                </div>
-              </div>
-
-              <div>
-                <label
-                  htmlFor="lastName"
-                  className="block text-sm font-medium text-gray-700"
-                >
-                  Last name
-                </label>
-                <div className="mt-1">
-                  <input
-                    type="text"
-                    name="lastName"
-                    id="lastName"
-                    required
-                    value={formData.lastName}
-                    onChange={handleChange}
-                    className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-                  />
-                </div>
+            <div>
+              <label
+                htmlFor="userName"
+                className="block text-sm font-medium text-gray-700 :"
+              >
+                Username
+              </label>
+              <div className="mt-1">
+                <input
+                  type="text"
+                  name="userName"
+                  id="userName"
+                  value={formData.userName}
+                  onChange={handleChange}
+                  className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm required:"
+                />
               </div>
             </div>
-
-            {formData.userType === "vendor" && (
-              <div>
-                <label
-                  htmlFor="companyName"
-                  className="block text-sm font-medium text-gray-700"
-                >
-                  Company name
-                </label>
-                <div className="mt-1">
-                  <input
-                    type="text"
-                    name="companyName"
-                    id="companyName"
-                    value={formData.companyName}
-                    onChange={handleChange}
-                    className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-                  />
-                </div>
-              </div>
-            )}
 
             <div>
               <label
