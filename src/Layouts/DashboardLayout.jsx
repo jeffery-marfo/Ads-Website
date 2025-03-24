@@ -5,9 +5,9 @@ import DashBar from "../components/DashBar";
 
 const DashboardLayout = () => {
   return (
-    <div className="flex flex-row">
+    <div className="">
       <Sidebar />
-      <div className="ml-60  flex flex-col gap-y-4">
+      <div className="ml-60  flex flex-col">
         <DashBar />
         <Outlet />
       </div>
