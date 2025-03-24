@@ -25,6 +25,11 @@
 //     setFormData((prev) => ({ ...prev, [name]: value }));
 //   };
 
+// export default Signup;
+import React, { useState } from "react";
+import { apiSignup } from "../../services/auth";
+
+
 //   const handleUserTypeChange = (type) => {
 //     setFormData((prev) => ({ ...prev, userType: type }));
 //   };
@@ -308,8 +313,14 @@ const Signup = () => {
     setLoading(true);
 
     try {
+
       // Here you would integrate with your actual signup API
       console.log("Creating account with name:", name, "email:", email);
+
+      // Here you would integrate with your actual registration API
+      await apiSignup();
+      console.log("Registering as", formData.userType, "with data:", formData);
+
 
       // Simulate API call
       await new Promise((resolve) => setTimeout(resolve, 1000));

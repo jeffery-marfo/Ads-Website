@@ -1,10 +1,14 @@
-// import React from "react";
+
+import React, { useEffect } from "react";
+import { apiGetAllAdverts } from "../../services/adverts";
+
 
 // const Adverts = () => {
 //   return <div>Adverts</div>;
 // };
 
 // export default Adverts;
+
 
 import React, { useState, useEffect } from "react";
 
@@ -86,6 +90,20 @@ const AdsPage = () => {
 
   // Get unique categories for filter dropdown
   const categories = [...new Set(ads.map((ad) => ad.category))];
+  
+    const fetchAds = async () => {
+    try {
+      const res = await apiGetAllAdverts();
+      console.log(res);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+  useEffect(() => {
+    fetchAds();
+  }, []);
 
   // Apply filters whenever filter states change
   useEffect(() => {
@@ -280,3 +298,4 @@ const AdsPage = () => {
 };
 
 export default AdsPage;
+
