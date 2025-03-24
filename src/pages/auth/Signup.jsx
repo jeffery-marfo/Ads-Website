@@ -6,6 +6,7 @@
 
 // export default Signup;
 import React, { useState } from "react";
+import { apiSignup } from "../../services/auth";
 
 const Signup = () => {
   const [formData, setFormData] = useState({
@@ -58,6 +59,7 @@ const Signup = () => {
 
     try {
       // Here you would integrate with your actual registration API
+      await apiSignup();
       console.log("Registering as", formData.userType, "with data:", formData);
 
       // Simulate API call
