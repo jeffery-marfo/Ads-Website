@@ -1,16 +1,11 @@
-
-import React, { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { apiGetAllAdverts } from "../../services/adverts";
-
 
 // const Adverts = () => {
 //   return <div>Adverts</div>;
 // };
 
 // export default Adverts;
-
-
-import React, { useState, useEffect } from "react";
 
 const AdsPage = () => {
   // Sample data - replace with your actual data source
@@ -90,8 +85,8 @@ const AdsPage = () => {
 
   // Get unique categories for filter dropdown
   const categories = [...new Set(ads.map((ad) => ad.category))];
-  
-    const fetchAds = async () => {
+
+  const fetchAds = async () => {
     try {
       const res = await apiGetAllAdverts();
       console.log(res);
@@ -298,4 +293,3 @@ const AdsPage = () => {
 };
 
 export default AdsPage;
-

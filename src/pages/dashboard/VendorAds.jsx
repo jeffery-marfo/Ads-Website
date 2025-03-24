@@ -1,8 +1,7 @@
-// import React from "react";
+import React from "react";
 
-// const VendorAds = () => {
-//   return <div></div>;
-// };
+const VendorAds = () => {
+  return <div></div>;
+};
 
-// export default VendorAds;
-
+export default VendorAds;
