@@ -63,9 +63,9 @@ const SingleAd = () => {
 
         <div className="flex gap-2 ">
         
-            <button className="p-2 border-2 border-gray-500 cursor-pointer rounded-md bg-black text-white w-30" type="submit">Start Order</button><br /> <br />
-            <button className="p-2 border-2 border-gray-500 cursor-pointer rounded-md bg-black text-white w-30" type="submit">Add to Cart</button><br /> <br />
-            <button className="p-2 border-2 border-green-600 cursor-pointer rounded-md bg-green-900 text-white w-30" type="submit">Chart Now</button>
+            <button className="p-2 border-2 border-gray-500 shadow-gray-500 transition duration-150 ease-in-out hover:bg-blue-950 cursor-pointer rounded-md bg-black text-white w-30" type="submit">Start Order</button><br /> <br />
+            <button className="p-2 border-2 border-gray-500 shadow-gray-500 transition duration-150 ease-in-out hover:bg-blue-950 cursor-pointer rounded-md bg-black text-white w-30" type="submit">Add to Cart</button><br /> <br />
+            <button className="p-2 border-2 border-green-600  shadow-green-600 transition duration-150 ease-in-out hover:bg-green-950 cursor-pointer rounded-md bg-green-900 text-white w-30" type="submit">Chart Now</button>
         </div>
         <br /><br />
 
@@ -89,7 +89,7 @@ const SingleAd = () => {
         <br />
         <h2 className="font-bold text-lg"> More than 100 Order</h2>
        <p>To order more that 100 of these leather handbags in one purchase reach out to vendor.</p><br />
-       <button className="p-2 border-2 border-amber-800 cursor-pointer rounded-md bg-amber-200 text-black font-bold ml-30 w-60" type="submit">Send Enquiry Now</button>
+       <button className="p-2 border-2 border-amber-800  shadow-amber-800 transition duration-150 ease-in-out hover:bg-amber-800 cursor-pointer rounded-md bg-amber-200 text-black font-bold ml-30 w-60" type="submit">Send Enquiry Now</button>
        </div>
     </section>
 
