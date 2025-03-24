@@ -10,6 +10,8 @@ import DashboardLayout from "./Layouts/DashboardLayout";
 import Overview from "./pages/dashboard/Overview";
 import CreateAds from "./pages/dashboard/CreateAds";
 import VendorAds from "./pages/dashboard/VendorAds";
+import About from "./components/About";
+import Contact from "./components/Contact";
 
 function App() {
   return (
@@ -19,6 +21,8 @@ function App() {
           <Route index={true} element={<Landing />} />
           <Route path="/adverts" element={<Adverts />} />
           <Route path="adverts/:id" element={<SingleAd />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
         </Route>
 
         <Route path="/login" element={<Login />} />
