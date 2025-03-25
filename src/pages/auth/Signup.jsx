@@ -65,7 +65,7 @@ const Signup = () => {
 
       // Handle successful registration
       // Redirect to login page or directly to dashboard
-      window.location.href = "/login?registered=true";
+      // window.location.href = "/login?registered=true";
     } catch (err) {
       setError("Failed to create account. Please try again.");
       console.error(err);

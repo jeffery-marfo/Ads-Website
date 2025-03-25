@@ -1,172 +1,186 @@
 import React from "react";
+import { apiAddAdvert } from "../../services/adverts";
 
 function PostAdComponent() {
   const handleSubmit = async () => {
     try {
-      const response = await fetch('/api/post-ad', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ /* ad data */ })
+      const response = await fetch("/api/post-ad", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          /* ad data */
+        }),
       });
       const data = await response.json();
 
       if (response.ok) {
-        alert('Advertisement posted successfully!');
+        alert("Advertisement posted successfully!");
       } else {
-        alert('Error: ' + data.message);
+        alert("Error: " + data.message);
       }
     } catch (error) {
-      alert('Something went wrong. Please try again.');
+      alert("Something went wrong. Please try again.");
     }
   };
 }
 
-
-
-
-
-
-
 const CreateAds = () => {
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+
+    try {
+      const response = await apiAddAdvert(formData);
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <div>
-       <div className=" bg-gray-100 flex items-center justify-center p-4 m-auto w-full">
-      <div className=" ">
-        <form action="" className="p-5  gap-5 flex-wrap space-y-5 bg-white ">
-          {/* header here */}
-          <div className="w-full max-w-4xl mx-auto p-4 bg-purple-900 rounded-lg shadow-sm flex justify-between items-center">
-            <h1 className="text-lg font-medium  text-white flex-grow">
-              Post ad
-            </h1>
-            <button className="text-white font-medium text-sm underline">Clear</button>
-          </div>
-          {/* title here */}
-          <div>
-            <label htmlFor="title" className="mb-2">
-              Title
-            </label>
-            <input
-              type="title"
-              required
-              placeholder="title"
-              className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
-            />
-          </div>
-          {/* description */}
-          <div>
-            <label
-              htmlFor="description"
-              className="block text-gray-800 font-medium mb-1"
-            >
-              Description
-            </label>
-            
-          
-            <textarea
-              id="message"
-              name="message"
-              rows="3"
-              placeholder="description"
-              className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
-            ></textarea>
-          </div>
-          {/* photo upload */}
-          <div>
-            <div>
-              <h1 className="text-base font-medium text-gray-700">Add Photo</h1>
-              <p className=" text-black mt-1">
-                First picture is the title picture. You can change the order of
-                photos: just grab your photos and drag
-              </p>
+      <div className=" bg-gray-100 flex items-center justify-center p-4 m-auto w-full">
+        <div className=" ">
+          <form
+            action=""
+            className="p-5  gap-5 flex-wrap space-y-5 bg-white "
+            onSubmit={handleSubmit}
+          >
+            {/* header here */}
+            <div className="w-full max-w-4xl mx-auto p-4 bg-purple-900 rounded-lg shadow-sm flex justify-between items-center">
+              <h1 className="text-lg font-medium  text-white flex-grow">
+                Post ad
+              </h1>
+              <button className="text-white font-medium text-sm underline">
+                Clear
+              </button>
             </div>
-            {/* image here */}
-            <div className="flex flex-wrap gap-2 mt-3">
-              <label
-                htmlFor="photo upload"
-                className="flex items-center justify-center w-24 h-24 bg-green-50 rounded cursor-pointer hover:bg-green-100"
-              ></label>
-              <span className="text-green-500 text-3xl">+</span>
+            {/* title here */}
+            <div>
+              <label htmlFor="title" className="mb-2">
+                Title
+              </label>
               <input
-                type="file"
-                id="photo-upload"
-                accept="image/jpeg,image/png"
-                className="hidden"
-                multiple
+                name="title"
+                type="title"
+                required
+                placeholder="title"
+                className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
               />
             </div>
-            <p className=" text-black mt-2">support formats are *.jpeg *.png</p>
-          </div>
-          <div>
-            <label htmlFor="price">Price</label>
-            <input
-              type="price"
-              required
-              placeholder="price"
-              className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
-            />
-          </div>
-          {/* category */}
-          <div>
-            <label
-              htmlFor="category"
-              className="block text-gray-800 font-medium mb-1"
-            >
-              Category
-            </label>
+            {/* description */}
+            <div>
+              <label
+                htmlFor="description"
+                className="block text-gray-800 font-medium mb-1"
+              >
+                Description
+              </label>
 
-            <select
-              name=""
-              id=""
-              className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
-            >
-              <option value="" className="text-gray-500">
-                Category*
-              </option>
-              <option value="fashion">Fashion</option>
-              <option value="agriculture and food">Agriculture and Food</option>
-              <option value="Babies and kids">Babies and kids</option>
-              <option value="electronics">Electronics</option>
-              <option value="health and beauty">Health and Beauty</option>
-              <option value="jobs">Jobs</option>
-              <option value="pets">Pets</option>
-              <option value="phones and tablet">Phones and Tablet</option>
-              <option value="property">Property</option>
-              <option value="sports,arts and outdoor">
-                Sports, Arts and Outdoor
-              </option>
-              <option value="repair and construction">
-                Repair and Construction
-              </option>
-              <option value="Home,appliances and furniture">
-                Home,Appliances and Furniture
-              </option>
-              <option value="seeking working Cvs"> Seeking Working CVs</option>
-              <option value="other">Other</option>
-            </select>
-          </div>
-          {/* next button */}
-          <div>
-            <button className="w-full bg-purple-800 text-white py-2 px-4 rounded-md hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2">
-              post ad
-            </button>
-          </div>
+              <textarea
+                id="message"
+                name="description"
+                rows="3"
+                placeholder="description"
+                className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
+              ></textarea>
+            </div>
+            {/* photo upload */}
+            <div>
+              <div>
+                <h1 className="text-base font-medium text-gray-700">
+                  Add Photo
+                </h1>
+                <p className=" text-black mt-1">
+                  First picture is the title picture. You can change the order
+                  of photos: just grab your photos and drag
+                </p>
+              </div>
+              {/* image here */}
+              <div className="flex flex-wrap gap-2 mt-3">
+                <label
+                  htmlFor="photo upload"
+                  className="flex items-center justify-center w-24 h-24 bg-green-50 rounded cursor-pointer hover:bg-green-100"
+                ></label>
+                <span className="text-green-500 text-3xl">+</span>
+                <input
+                  name="pictures"
+                  type="file"
+                  id="photo-upload"
+                  accept="image/*"
+                  className=""
+                  multiple
+                />
+              </div>
+              <p className=" text-black mt-2">
+                support formats are *.jpeg *.png
+              </p>
+            </div>
+            <div>
+              <label htmlFor="price">Price</label>
+              <input
+                name="price"
+                type="price"
+                required
+                placeholder="price"
+                className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
+              />
+            </div>
+            {/* category */}
+            <div>
+              <label
+                htmlFor="category"
+                className="block text-gray-800 font-medium mb-1"
+              >
+                Category
+              </label>
 
-          <div className="w-[600px] flex items-center justify-center m-auto">
-          <p>
-            By clicking on <strong>Post Ad</strong>, you accept the
-            <a href="#" className="text-blue-500"> Terms of Use</a>, confirm that you will abide by the
-            <a href="#" className="text-blue-500"> Safety Tips</a>, and declare that this posting does not include any
-            <a href="#" className="text-blue-500"> Prohibited Items</a>.
-          </p>
-          </div>
-        </form>
+              <select
+                name="categories"
+                id=""
+                className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
+              >
+                <option value="" className="text-gray-500">
+                  Category*
+                </option>
+
+                <option value="Shirt">Shirt</option>
+                <option value="Pants">Pants</option>
+                <option value="Shoes">Shoes</option>
+                <option value="Accessories">Accessories</option>
+              </select>
+            </div>
+            {/* next button */}
+            <div>
+              <button className="w-full bg-purple-800 text-white py-2 px-4 rounded-md hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2">
+                post ad
+              </button>
+            </div>
+
+            <div className="w-[600px] flex items-center justify-center m-auto">
+              <p>
+                By clicking on <strong>Post Ad</strong>, you accept the
+                <a href="#" className="text-blue-500">
+                  {" "}
+                  Terms of Use
+                </a>
+                , confirm that you will abide by the
+                <a href="#" className="text-blue-500">
+                  {" "}
+                  Safety Tips
+                </a>
+                , and declare that this posting does not include any
+                <a href="#" className="text-blue-500">
+                  {" "}
+                  Prohibited Items
+                </a>
+                .
+              </p>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
-  
-
-    </div>
-  )
-  ;
+  );
 };
 
 export default CreateAds;

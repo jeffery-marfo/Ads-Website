@@ -6,71 +6,32 @@
 
 // export default VendorAds;
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Trash2, Edit2, Eye } from "lucide-react";
-
-// Initial ads data based on the reference image
-const initialAds = [
-  {
-    id: 1,
-    title: "iPhone 13 Pro",
-    category: "Electronics",
-    description: "Slightly used, great condition",
-    price: 899,
-    imageUrl: "/api/placeholder/300/200", // Replace with actual image
-    details: "2021 model, 16GB RAM",
-  },
-  {
-    id: 2,
-    title: "Mountain Bike",
-    category: "Sports",
-    description: "Trek mountain bike, barely used",
-    price: 450,
-    imageUrl: "/api/placeholder/300/200", // Replace with actual image
-    details: "Trek mountain bike",
-  },
-  {
-    id: 3,
-    title: "Leather Sofa",
-    category: "Furniture",
-    description: "Brown leather sofa, 3 years old",
-    price: 750,
-    imageUrl: "/api/placeholder/300/200", // Replace with actual image
-    details: "Brown leather sofa",
-  },
-  {
-    id: 4,
-    title: "MacBook Pro",
-    category: "Electronics",
-    description: "2021 model, 16GB RAM",
-    price: 1200,
-    imageUrl: "/api/placeholder/300/200", // Replace with actual image
-    details: "2021 model, 16GB RAM",
-  },
-  {
-    id: 5,
-    title: "Designer Watch",
-    category: "Fashion",
-    description: "Luxury watch, worn twice",
-    price: 299,
-    imageUrl: "/api/placeholder/300/200", // Replace with actual image
-    details: "Luxury watch",
-  },
-  {
-    id: 6,
-    title: "Coffee Table",
-    category: "Furniture",
-    description: "Wooden coffee table",
-    price: 120,
-    imageUrl: "/api/placeholder/300/200", // Replace with actual image
-    details: "Wooden coffee table",
-  },
-];
+import { apiGetVendorAdverts } from "../../services/adverts";
+import { useNavigate } from "react-router";
 
 const VendorAds = () => {
-  const [ads, setAds] = useState(initialAds);
+  // const [ads, setAds] = useState(initialAds);
   const [selectedAd, setSelectedAd] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
+
+  const navigate = useNavigate();
+  const [ads, setAds] = useState([]);
+  // fetching data from api
+  const getAds = async () => {
+    try {
+      const response = await apiGetVendorAdverts();
+      setAds(response.data);
+      console.log(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    getAds();
+  }, []);
 
   // Delete ad handler
   const handleDeleteAd = (adId) => {
@@ -119,7 +80,7 @@ const VendorAds = () => {
             {/* Ad Image */}
             <div className="h-48 overflow-hidden">
               <img
-                src={ad.imageUrl}
+                src={`https://res.cloudinary.com/dnkydt52r/image/upload/${ad.pictures}`}
                 alt={ad.title}
                 className="w-full h-full object-cover"
               />
