@@ -32,6 +32,7 @@ function App() {
           <Route index={true} element={<Overview />} />
           <Route path="create-ad" element={<CreateAds />} />
           <Route path="ads" element={<VendorAds />} />
+          <Route path="profile" element={<VendorAds />} />
         </Route>
       </Routes>
     </BrowserRouter>
