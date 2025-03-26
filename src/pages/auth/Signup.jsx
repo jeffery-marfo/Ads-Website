@@ -49,6 +49,7 @@ const Signup = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     setError("");
 
     if (!validateForm()) return;

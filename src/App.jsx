@@ -12,6 +12,9 @@ import CreateAds from "./pages/dashboard/CreateAds";
 import VendorAds from "./pages/dashboard/VendorAds";
 import About from "./components/About";
 import Contact from "./components/Contact";
+import VendorProfile from "./pages/dashboard/VendorProfile";
+import Settings from "./pages/dashboard/Settings";
+import UpdateAds from "./pages/dashboard/UpdateAds";
 
 function App() {
   return (
@@ -32,7 +35,10 @@ function App() {
           <Route index={true} element={<Overview />} />
           <Route path="create-ad" element={<CreateAds />} />
           <Route path="ads" element={<VendorAds />} />
-          <Route path="profile" element={<VendorAds />} />
+          <Route path="update-ad" element={<UpdateAds />} />
+
+          <Route path="settings" element={<Settings />} />
+          <Route path="profile" element={<VendorProfile />} />
         </Route>
       </Routes>
     </BrowserRouter>

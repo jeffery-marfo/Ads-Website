@@ -20,7 +20,7 @@ const Login = () => {
       // Here you would integrate with your actual authentication API
       // console.log("Logging in as", userType, "with email:", email);
       const response = await apiLogin({ email, password }); //fetch token from backend
-      localStorage.setItem('token', response.data.accessToken);
+      localStorage.setItem("token", response.data.accessToken);
       console.log(response);
 
       // Simulate API call
@@ -102,8 +102,9 @@ const Login = () => {
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
               <input
+                name="email"
                 type="email"
-                placeholder="Email or Phone Number"
+                placeholder="Please enter your email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
@@ -113,6 +114,7 @@ const Login = () => {
 
             <div>
               <input
+                name="password"
                 type="password"
                 placeholder="Password"
                 value={password}
