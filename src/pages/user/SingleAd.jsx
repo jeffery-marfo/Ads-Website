@@ -10,7 +10,7 @@ import stripe from "../../assets/images/stripe.png"
 
 const SingleAd = () => {
   return (
-  <div className="flex flex-1/2 mt-10">
+  <div className="flex flex-1/2 mt-10 justify-center m-20">
     <section>
     <div className ="row mt-5 cursor-pointer">
                 <div className ="col-lg-5 col-md-12 col-12 ">
@@ -36,7 +36,7 @@ const SingleAd = () => {
             </div>
     </section>
 
-    <section className="relative ml-80">
+    <section className="relative ml-40 p-10">
 
       <div className ="col-lg-6 col-md-12 col-12 text-lg">
         <header className="font-bold text-gray-500"><h2>Home / Ladies Bags</h2> </header>
@@ -89,7 +89,7 @@ const SingleAd = () => {
         <br />
         <h2 className="font-bold text-lg"> More than 100 Order</h2>
        <p>To order more that 100 of these leather handbags in one purchase reach out to vendor.</p><br />
-       <button className="p-2 border-2 border-amber-800  shadow-amber-800 transition duration-150 ease-in-out hover:bg-amber-800 cursor-pointer rounded-md bg-amber-200 text-black font-bold ml-30 w-60" type="submit">Send Enquiry Now</button>
+       <button className="p-2 border-2 border-amber-800  shadow-amber-800 transition duration-150 ease-in-out hover:bg-amber-800 cursor-pointer rounded-md bg-amber-200 text-black font-bold ml-10 w-60" type="submit">Send Enquiry Now</button>
        </div>
     </section>
 
