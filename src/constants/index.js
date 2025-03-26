@@ -5,6 +5,7 @@ import {
   Settings,
   Settings2Icon,
   SettingsIcon,
+  SquarePen,
   User,
 } from "lucide-react";
 export default {
@@ -26,13 +27,19 @@ export default {
       icon: FileIcon,
     },
     {
+      name: "Update Ad",
+      Path: "/dashboard/update-ad",
+      icon: SquarePen,
+    },
+
+    {
       name: "Profile",
-      Path: "/dashboard/ads",
+      Path: "/dashboard/profile",
       icon: User,
     },
     {
       name: "Settings",
-      Path: "/dashboard/ads",
+      Path: "/dashboard/settings",
       icon: Settings2Icon,
     },
   ],
