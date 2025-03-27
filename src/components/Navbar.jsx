@@ -132,7 +132,7 @@ const Navbar = () => {
               isMenuOpen ? "block" : "hidden"
             }`}
           >
-            {localStorage.getItem("token") ? (
+            {false ? (
               <p>Logged In</p>
             ) : (
               <>

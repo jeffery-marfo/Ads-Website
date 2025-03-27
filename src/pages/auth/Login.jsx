@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import heRo from "../../assets/images/hero.jpg";
 import gooGle from "../../assets/images/googlelogo.png";
 import { apiLogin } from "../../services/auth";
+import { useNavigate } from "react-router";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -9,6 +10,8 @@ const Login = () => {
   const [userType, setUserType] = useState("user"); // Default to 'user'
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  // Added useNavigate for navigation
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -20,19 +23,28 @@ const Login = () => {
       // Here you would integrate with your actual authentication API
       // console.log("Logging in as", userType, "with email:", email);
       const response = await apiLogin({ email, password }); //fetch token from backend
+      const { user } = response.data;
       localStorage.setItem("token", response.data.accessToken);
+      localStorage.setItem("user", JSON.stringify(user.role));
       console.log(response);
+
+      //navigate user to their role
+      if (user.role === "vendor") {
+        navigate("/dashboard");
+      } else {
+        navigate("/");
+      }
 
       // Simulate API call
       await new Promise((resolve) => setTimeout(resolve, 1000));
 
       // Handle successful login
       // Redirect based on user type
-      if (userType === "vendor") {
-        // window.location.href = "/vendor/dashboard";
-      } else {
-        // window.location.href = "/user/dashboard";
-      }
+      // if (userType === "vendor") {
+      //   // window.location.href = "/vendor/dashboard";
+      // } else {
+      //   // window.location.href = "/user/dashboard";
+      // }
     } catch (err) {
       setError("Failed to log in. Please check your credentials.");
       console.error(err);

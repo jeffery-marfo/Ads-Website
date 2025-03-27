@@ -9,7 +9,7 @@
 import React, { useState, useEffect } from "react";
 import { useLocation, Link } from "react-router-dom";
 
-const DashBar = ({ username = "User", notifications = [] }) => {
+const DashBar = ({ username = "Vendor", notifications = [] }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isNotificationsOpen, setIsNotificationsOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
@@ -54,8 +54,8 @@ const DashBar = ({ username = "User", notifications = [] }) => {
         {/* DashBar Title */}
         <div className="flex items-center">
           <h1 className="text-xl font-bold">
-            <span className="text-black">DASH</span>
-            <span className="text-emerald-400">BAR</span>
+            <span className="text-black">Ad</span>
+            <span className="text-emerald-400">Connector</span>
           </h1>
         </div>
 

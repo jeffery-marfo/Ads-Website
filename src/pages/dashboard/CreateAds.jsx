@@ -1,29 +1,6 @@
 import React from "react";
 import { apiAddAdvert } from "../../services/adverts";
 
-function PostAdComponent() {
-  const handleSubmit = async () => {
-    try {
-      const response = await fetch("/api/post-ad", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          /* ad data */
-        }),
-      });
-      const data = await response.json();
-
-      if (response.ok) {
-        alert("Advertisement posted successfully!");
-      } else {
-        alert("Error: " + data.message);
-      }
-    } catch (error) {
-      alert("Something went wrong. Please try again.");
-    }
-  };
-}
-
 const CreateAds = () => {
   const handleSubmit = async (event) => {
     // prevent default submit behavior
