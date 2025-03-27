@@ -31,7 +31,7 @@ const SingleAd = () => {
 
 
     return (
-        <div className="flex flex-1/2 mt-10 justify-center m-20">
+        <div className="flex flex-1/2 mt-10 justify-center m-20 pt-24">
 
 
             <section className="relative ml-40 p-10">
@@ -41,8 +41,7 @@ const SingleAd = () => {
 
                 <div className="col-lg-6 col-md-12 col-12 text-lg">
                     <header className="font-bold text-gray-500"><h2>{ad.title}</h2> </header>
-                    <h3 className="font-bold font-large">{ad.description}</h3>
-                    <h3 className="font-bold font-large">{ad.category}</h3>
+                    <h3 className="font-bold font-large">{ad.categories}</h3>
                     <h6><span className="font-bold">Price:</span>{ad.price}</h6>
                 </div>
 
@@ -72,8 +71,8 @@ const SingleAd = () => {
                 <br /><br />
 
                 <h4 className="font-bold text-lg">{ad.description}</h4>
-                <span>
-                    The leather tote bag is extremely versatile and designed in a professional vintage style. <br /> The extra depth and subtle extra width of this leather tote bag means it can easily accommodate everything you need to get you through the working day. <br />Made from durable leather with sturdy handles, this bag is designed to last.</span>
+                {/* <span>
+                    The leather tote bag is extremely versatile and designed in a professional vintage style. <br /> The extra depth and subtle extra width of this leather tote bag means it can easily accommodate everything you need to get you through the working day. <br />Made from durable leather with sturdy handles, this bag is designed to last.</span> */}
 
                 <div>
                     <br />
