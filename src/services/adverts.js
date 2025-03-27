@@ -13,3 +13,9 @@ export const apiUpdateAdvert = async (id, payload) =>
 export const apiGetSingleAdvert = async (id) => apiClient.get(`/adverts/${id}`);
 
 export const apiDeleteAdvert = async (id) => apiClient.delete(`/adverts/${id}`);
+
+export const apiGetSingleAdvert = async (id) => apiClient.get(`/adverts/${id}`,{
+  headers: {
+    Authorization: `Bearer ${localStorage.getItem("token")}`,
+  },
+});
