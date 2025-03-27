@@ -26,8 +26,11 @@ function PostAdComponent() {
 
 const CreateAds = () => {
   const handleSubmit = async (event) => {
+    // prevent default submit behavior
     event.preventDefault();
+    // collect form data
     const formData = new FormData(event.target);
+    // post data to backend
 
     try {
       const response = await apiAddAdvert(formData);
@@ -46,7 +49,7 @@ const CreateAds = () => {
             onSubmit={handleSubmit}
           >
             {/* header here */}
-            <div className="w-full max-w-4xl mx-auto p-4 bg-purple-900 rounded-lg shadow-sm flex justify-between items-center">
+            <div className="w-full max-w-4xl mx-auto p-4 bg-green-500 rounded-lg shadow-sm flex justify-between items-center">
               <h1 className="text-lg font-medium  text-white flex-grow">
                 Post ad
               </h1>
@@ -151,7 +154,7 @@ const CreateAds = () => {
             </div>
             {/* next button */}
             <div>
-              <button className="w-full bg-purple-800 text-white py-2 px-4 rounded-md hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2">
+              <button className="w-full bg-green-500 text-white py-2 px-4 rounded-md hover:bg-green-300 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2">
                 post ad
               </button>
             </div>

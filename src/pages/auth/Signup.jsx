@@ -39,8 +39,8 @@ const Signup = () => {
       return false;
     }
 
-    if (formData.role === "vendor" && !formData.companyName.trim()) {
-      setError("Company name is required for vendors");
+    if (formData.role === "vendor" && !formData.userName.trim()) {
+      setError("Username is required for vendors");
       return false;
     }
 
@@ -49,6 +49,7 @@ const Signup = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     setError("");
 
     if (!validateForm()) return;

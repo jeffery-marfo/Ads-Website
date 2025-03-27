@@ -132,22 +132,28 @@ const Navbar = () => {
               isMenuOpen ? "block" : "hidden"
             }`}
           >
-            <Link
-              to="/login"
-              className={`block py-2 transition-colors duration-200 ${
-                isActive("/login") ? activeStyle : inactiveStyle
-              } md:inline-block`}
-            >
-              Log In
-            </Link>
-            <Link
-              to="/signup"
-              className={`block py-2 transition-colors duration-200 ${
-                isActive("/signup") ? activeStyle : inactiveStyle
-              } md:inline-block`}
-            >
-              Register
-            </Link>
+            {localStorage.getItem("token") ? (
+              <p>Logged In</p>
+            ) : (
+              <>
+                <Link
+                  to="/login"
+                  className={`block py-2 transition-colors duration-200 ${
+                    isActive("/login") ? activeStyle : inactiveStyle
+                  } md:inline-block`}
+                >
+                  Log In
+                </Link>
+                <Link
+                  to="/signup"
+                  className={`block py-2 transition-colors duration-200 ${
+                    isActive("/signup") ? activeStyle : inactiveStyle
+                  } md:inline-block`}
+                >
+                  Register
+                </Link>
+              </>
+            )}
             <Link
               to="/dashboard/create-ad"
               className="block py-2 px-4 bg-emerald-400 text-white rounded hover:bg-emerald-500 md:inline-block transition-colors duration-200"
