@@ -8,8 +8,8 @@
 
 import React, { useEffect, useState } from "react";
 import { Trash2, Edit2, Eye } from "lucide-react";
-import { apiGetVendorAdverts } from "../../services/adverts";
-import { useNavigate } from "react-router";
+import { apiDeleteAdvert, apiGetVendorAdverts } from "../../services/adverts";
+import { Link, useNavigate } from "react-router";
 
 const VendorAds = () => {
   // const [ads, setAds] = useState(initialAds);
@@ -33,10 +33,18 @@ const VendorAds = () => {
     getAds();
   }, []);
 
-  // Delete ad handler
-  const handleDeleteAd = (adId) => {
-    setAds(ads.filter((ad) => ad.id !== adId));
+  const handleDeleteAd = async (id) => {
+    try {
+      const response = await apiDeleteAdvert(id);
+    } catch (error) {
+      console.log(error);
+    }
   };
+
+  // Delete ad handler
+  // const handleDeleteAd = (adId) => {
+  //   setAds(ads.filter((ad) => ad.id !== adId));
+  // };
 
   // Edit ad handler
   const handleEditAd = (ad) => {
@@ -107,12 +115,12 @@ const VendorAds = () => {
                   <Eye className="mr-2" size={18} />
                   View Details
                 </button>
-                <button
-                  onClick={() => handleEditAd(ad)}
+                <Link
+                  to={`/dashboard/update-ad/${ad.id}`}
                   className="bg-green-300 text-white p-2 rounded-lg hover:bg-green-600"
                 >
                   <Edit2 size={18} />
-                </button>
+                </Link>
                 <button
                   onClick={() => handleDeleteAd(ad.id)}
                   className="bg-red-300 text-white p-2 rounded-lg hover:bg-red-600"

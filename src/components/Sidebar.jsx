@@ -13,7 +13,11 @@ const Sidebar = () => {
             return (
               <NavLink
                 to={link.Path}
-                className="text-white hover:bg-white hover:text-black px-3 py-2 w-full rounded-md flex gap-x-2"
+                // className="text-white hover:bg-white hover:text-black px-3 py-2 w-full rounded-md flex gap-x-2"
+                className={({ isActive }) =>
+                  `text-gray-700 hover:bg-white hover:text-black px-3 py-2 w-full rounded-md flex items-center gap-x-2
+                 ${isActive ? "bg-white text-black font-bold shadow-md" : ""}`
+                }
               >
                 <link.icon />
                 <span> {link.name}</span>

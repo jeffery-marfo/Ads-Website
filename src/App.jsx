@@ -35,7 +35,7 @@ function App() {
           <Route index={true} element={<Overview />} />
           <Route path="create-ad" element={<CreateAds />} />
           <Route path="ads" element={<VendorAds />} />
-          <Route path="update-ad" element={<UpdateAds />} />
+          <Route path="update-ad/:id" element={<UpdateAds />} />
 
           <Route path="settings" element={<Settings />} />
           <Route path="profile" element={<VendorProfile />} />

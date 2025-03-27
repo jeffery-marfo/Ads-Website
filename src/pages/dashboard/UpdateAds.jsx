@@ -1,9 +1,31 @@
 import React from "react";
+import { apiUpdateAdvert } from "../../services/adverts";
+import { useParams } from "react-router";
 
 const UpdateAds = () => {
+  const { id } = useParams();
+
+  const handleSubmit = async (event) => {
+    // prevent default submit behavior
+    event.preventDefault();
+    // collect form data
+    const formData = new FormData(event.target);
+    // post data to backend
+
+    try {
+      const response = await apiUpdateAdvert(id, formData);
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div className="container mx-auto px-4 py-8">
-      <form className="max-w-lg mx-auto bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+      <form
+        onSubmit={handleSubmit}
+        className="max-w-lg mx-auto bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
+      >
         <h2 className="text-2xl font-bold mb-6 text-center">
           Update Advertisement
         </h2>
@@ -16,6 +38,7 @@ const UpdateAds = () => {
             Title
           </label>
           <input
+            name="title"
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500"
             id="title"
             type="text"
@@ -32,6 +55,7 @@ const UpdateAds = () => {
             Description
           </label>
           <textarea
+            name="description"
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500"
             id="description"
             rows="4"
@@ -48,6 +72,7 @@ const UpdateAds = () => {
             Price
           </label>
           <input
+            name="price"
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500"
             id="price"
             type="number"
@@ -59,20 +84,21 @@ const UpdateAds = () => {
         <div className="mb-4">
           <label
             className="block text-gray-700 text-sm font-bold mb-2"
-            htmlFor="category"
+            htmlFor="categories"
           >
-            Category
+            Categories
           </label>
           <select
+            name="categories"
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500"
-            id="category"
+            id="categories"
             required
           >
             <option value="">Select Category</option>
-            <option value="clothing">Clothing</option>
-            <option value="electronics">Electronics</option>
-            <option value="furniture">Furniture</option>
-            <option value="vehicles">Vehicles</option>
+            <option value="Shirt">Shirt</option>
+            <option value="Pants">Pants</option>
+            <option value="Shoes">Shoes</option>
+            <option value="Accessories">Accessories</option>
           </select>
         </div>
 
@@ -84,8 +110,9 @@ const UpdateAds = () => {
             Upload Images
           </label>
           <input
+            name="pictures"
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500"
-            id="images"
+            id="pictures"
             type="file"
             multiple
             accept="image/*"
