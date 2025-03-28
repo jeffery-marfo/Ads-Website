@@ -54,8 +54,8 @@ const DashBar = ({ username = "Vendor", notifications = [] }) => {
         {/* DashBar Title */}
         <div className="flex items-center">
           <h1 className="text-xl font-bold">
-            <span className="text-black">Ad</span>
-            <span className="text-emerald-400">Connector</span>
+            <span className="text-black">Dash</span>
+            <span className="text-emerald-400">Board</span>
           </h1>
         </div>
 

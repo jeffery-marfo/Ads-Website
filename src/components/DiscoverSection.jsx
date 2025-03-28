@@ -111,9 +111,7 @@ const DiscoverSection = () => {
       <div className="max-w-7xl mx-auto">
         {/* Header with location */}
         <div className="flex justify-between items-center mb-4">
-          <h2 className="text-2xl font-bold text-gray-800">
-            Discover more Good Finds
-          </h2>
+          <h2 className="text-2xl font-bold text-gray-800">Trending Today</h2>
           <div className="flex items-center text-gray-600">
             <svg
               className="w-5 h-5 mr-1"
@@ -127,7 +125,7 @@ const DiscoverSection = () => {
                 clipRule="evenodd"
               ></path>
             </svg>
-            <span>United Kingdom</span>
+            <span>Ghana</span>
           </div>
         </div>
 

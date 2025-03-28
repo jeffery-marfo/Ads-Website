@@ -44,8 +44,8 @@ const Navbar = () => {
           {/* Logo */}
           <div className="flex items-center">
             <Link to="/" className="text-2xl font-bold">
-              <span className="text-black">CLASSY</span>
-              <span className="text-emerald-400">ADS</span>
+              <span className="text-black">AD</span>
+              <span className="text-emerald-400">CONNECTOR</span>
             </Link>
           </div>
 
@@ -103,7 +103,7 @@ const Navbar = () => {
                   {/* <span className="inline-block ml-1"></span> */}
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <Link
                   to="/blog"
                   className={`block py-2 transition-colors duration-200 ${
@@ -112,7 +112,7 @@ const Navbar = () => {
                 >
                   Blog
                 </Link>
-              </li>
+              </li> */}
               <li>
                 <Link
                   to="/contact"

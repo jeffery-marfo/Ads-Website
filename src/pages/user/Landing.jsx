@@ -1,14 +1,15 @@
 import React from "react";
 import HeroSection from "../../components/HeroSection";
-import DiscoverSection from "../../components/DiscoverSection";
+
 import BlogSection from "../../components/BlogSection";
 import FAQSection from "../../components/FAQSection/FAQSection";
+import About from "../../components/About";
 
 const Landing = () => {
   return (
     <div>
       <HeroSection />
-      <DiscoverSection />
+
       <BlogSection />
       <FAQSection />
     </div>

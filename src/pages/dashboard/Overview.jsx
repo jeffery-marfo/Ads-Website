@@ -21,7 +21,7 @@ import {
 
 const Overview = () => {
   // User data
-  const userName = "Thomas";
+  const userName = "w";
 
   // Date range state and functionality
   const [dateRange, setDateRange] = useState({
@@ -165,9 +165,7 @@ const Overview = () => {
             {userName.charAt(0)}
           </div>
           <div>
-            <h1 className="text-xl md:text-2xl font-semibold">
-              Welcome, {userName} 👋
-            </h1>
+            <h1 className="text-xl md:text-2xl font-semibold">Welcome, 👋</h1>
             <p className="text-gray-600 text-sm md:text-base">
               Manage your ads and track performance with ease!
             </p>

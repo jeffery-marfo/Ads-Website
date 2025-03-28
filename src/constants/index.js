@@ -26,11 +26,11 @@ export default {
       Path: "/dashboard/ads",
       icon: FileIcon,
     },
-    {
-      name: "Update Ad",
-      Path: "/dashboard/update-ad",
-      icon: SquarePen,
-    },
+    // {
+    //   name: "Update Ad",
+    //   Path: "/dashboard/update-ad",
+    //   icon: SquarePen,
+    // },
 
     {
       name: "Profile",

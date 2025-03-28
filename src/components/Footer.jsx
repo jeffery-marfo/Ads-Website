@@ -17,7 +17,7 @@ const Footer = () => {
                   href="#"
                   className="hover:text-teal-400 transition duration-300"
                 >
-                  About Gumtree
+                  AdConnector
                 </a>
               </li>
               <li>
@@ -115,7 +115,7 @@ const Footer = () => {
                   href="#"
                   className="hover:text-teal-400 transition duration-300"
                 >
-                  Gumtree Life
+                  AdConnector Lte
                 </a>
               </li>
               <li>
@@ -169,7 +169,7 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between py-6 border-t border-gray-700">
           <div>
             <h3 className="text-white text-lg font-medium mb-4">
-              Join Gumtree Community
+              Join AdConnector Community
             </h3>
             <div className="flex space-x-4">
               <a
@@ -270,38 +270,40 @@ const Footer = () => {
           </div>
           <div>
             <h3 className="text-white text-lg font-medium mb-4 mt-6 md:mt-0">
-              Gumtree Partners
+              AdConnector Partners
             </h3>
             <div className="bg-gray-700 py-1 px-4 inline-block rounded">
-              <span className="text-white">Motors</span>
+              <span className="text-white">Silicon Valley</span>
             </div>
           </div>
         </div>
 
         {/* Copyright Section */}
         <div className="border-t border-gray-700 pt-6 mt-4 text-sm text-gray-400 text-center">
-          <p>© Copyright 2000-2025 Gumtree.com Limited. All rights reserved.</p>
+          <p>
+            © Copyright 2000-2025 AdConnector.com Limited. All rights reserved.
+          </p>
 
           <p className="mt-4">
-            Gumtree.com Limited (FRN 560524) is an Appointed Representative of
-            Consumer Credit Compliance Limited who are authorised and regulated
-            by the Financial Conduct Authority (FRN 631736).
+            AdConnector.com Limited (FRN 560524) is an Appointed Representative
+            of Consumer Credit Compliance Limited who are authorised and
+            regulated by the Financial Conduct Authority (FRN 631736).
           </p>
 
           <p className="mt-4">
             The permissions of Consumer Credit Compliance Limited as a Principal
-            firm allow Gumtree.com Limited to undertake insurance and credit
-            broking. Gumtree.com Limited acts as a credit broker, not a lender.
-            We will refer you to CarMoney Limited (FRN 674094) for credit, we
-            receive a fixed fee commission up to an agreed number of leads, and
-            additional commission for those above the agreed level. We will
-            refer you to Inspop.com Ltd T/A Confused.com (FRN 310635) for
-            Insurance and we receive a fixed fee commission. You will not pay
-            more as a result of our commission arrangements.
+            firm allow AdConnector.com Limited to undertake insurance and credit
+            broking. AdConnector.com Limited acts as a credit broker, not a
+            lender. We will refer you to CarMoney Limited (FRN 674094) for
+            credit, we receive a fixed fee commission up to an agreed number of
+            leads, and additional commission for those above the agreed level.
+            We will refer you to Inspop.com Ltd T/A Confused.com (FRN 310635)
+            for Insurance and we receive a fixed fee commission. You will not
+            pay more as a result of our commission arrangements.
           </p>
 
           <p className="mt-4">
-            Gumtree.com Limited, registered in England and Wales with number
+            AdConnector.com Limited, registered in England and Wales with number
             03934849, 27 Old Gloucester Street, London, WC1N 3AX, United
             Kingdom. VAT No. 476 0835 68.
           </p>

@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from "react";
+import bloG1 from "../assets/images/blog1.png";
+
+import bLog3 from "../assets/images/blog3.png";
 
 const BlogSection = () => {
   // Sample blog post data
@@ -11,7 +14,7 @@ const BlogSection = () => {
       category: "News",
       excerpt:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus eligendi nobis ea maiores sapiente veritatis reprehenderit suscipit quaerat rerum voluptatibus a eius.",
-      image: "/api/placeholder/400/300",
+      image: bloG1,
     },
     {
       id: 2,
@@ -21,7 +24,7 @@ const BlogSection = () => {
       category: "News",
       excerpt:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus eligendi nobis ea maiores sapiente veritatis reprehenderit suscipit quaerat rerum voluptatibus a eius.",
-      image: "/api/placeholder/400/300",
+      image: bloG1,
     },
     {
       id: 3,
@@ -31,7 +34,7 @@ const BlogSection = () => {
       category: "News",
       excerpt:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus eligendi nobis ea maiores sapiente veritatis reprehenderit suscipit quaerat rerum voluptatibus a eius.",
-      image: "/api/placeholder/400/300",
+      image: bLog3,
     },
     {
       id: 4,
@@ -41,7 +44,7 @@ const BlogSection = () => {
       category: "Marketing",
       excerpt:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus eligendi nobis ea maiores sapiente veritatis reprehenderit suscipit quaerat rerum voluptatibus a eius.",
-      image: "/api/placeholder/400/300",
+      image: bLog3,
     },
     {
       id: 5,
@@ -51,7 +54,7 @@ const BlogSection = () => {
       category: "Business",
       excerpt:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus eligendi nobis ea maiores sapiente veritatis reprehenderit suscipit quaerat rerum voluptatibus a eius.",
-      image: "/api/placeholder/400/300",
+      image: bloG1,
     },
     {
       id: 6,
@@ -61,7 +64,7 @@ const BlogSection = () => {
       category: "Marketing",
       excerpt:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus eligendi nobis ea maiores sapiente veritatis reprehenderit suscipit quaerat rerum voluptatibus a eius.",
-      image: "/api/placeholder/400/300",
+      image: bloG1,
     },
   ];
 

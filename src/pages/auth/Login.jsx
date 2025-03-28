@@ -84,7 +84,7 @@ const Login = () => {
                 htmlFor="user-type-user"
                 className="ml-2 block text-sm text-gray-900"
               >
-                User
+                Customer
               </label>
             </div>
             <div className="flex items-center">

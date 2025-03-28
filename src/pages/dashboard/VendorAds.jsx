@@ -36,6 +36,8 @@ const VendorAds = () => {
   const handleDeleteAd = async (id) => {
     try {
       const response = await apiDeleteAdvert(id);
+      console.log(response.data)
+      window.location.reload();
     } catch (error) {
       console.log(error);
     }
